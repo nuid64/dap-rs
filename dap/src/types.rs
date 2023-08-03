@@ -324,7 +324,7 @@ pub struct Source {
   pub checksums: Option<Vec<Checksum>>,
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Serialize, Debug, Default, Clone)]
 #[cfg_attr(feature = "integration_testing", derive(Dummy))]
 pub struct SourceBreakpoint {
   /// The source line of the breakpoint or logpoint.
@@ -441,7 +441,7 @@ pub struct Checksum {
 
 /// An ExceptionFilterOptions is used to specify an exception filter together with a condition for
 /// the setExceptionBreakpoints request.
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Serialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 #[cfg_attr(feature = "integration_testing", derive(Dummy))]
 pub struct ExceptionFilterOptions {
@@ -540,7 +540,7 @@ pub struct ExceptionOptions {
 /// Properties of a breakpoint passed to the setFunctionBreakpoints request.
 ///
 /// Specification: [FunctionBreakpoint](https://microsoft.github.io/debug-adapter-protocol/specification#Types_FunctionBreakpoint)
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Serialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 #[cfg_attr(feature = "integration_testing", derive(Dummy))]
 pub struct FunctionBreakpoint {
@@ -1026,7 +1026,7 @@ impl ToString for ThreadEventReason {
 fromstr_deser! { ThreadEventReason }
 tostr_ser! { ThreadEventReason }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Serialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 #[cfg_attr(feature = "integration_testing", derive(Dummy))]
 pub struct ValueFormat {
@@ -1035,7 +1035,7 @@ pub struct ValueFormat {
   pub hex: Option<bool>,
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Serialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct StackFrameFormat {
   /// Display the value in hex.
@@ -1184,7 +1184,7 @@ impl ToString for DataBreakpointAccessType {
 fromstr_deser! { DataBreakpointAccessType }
 tostr_ser! { DataBreakpointAccessType }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Serialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 #[cfg_attr(feature = "integration_testing", derive(Dummy))]
 pub struct DataBreakpoint {
@@ -1206,7 +1206,7 @@ pub struct DataBreakpoint {
 /// Properties of a breakpoint passed to the setInstructionBreakpoints request
 ///
 /// Specfication: [InstructionBreakpoint](https://microsoft.github.io/debug-adapter-protocol/specification#Types_InstructionBreakpoint)
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Serialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 #[cfg_attr(feature = "integration_testing", derive(Dummy))]
 pub struct InstructionBreakpoint {
